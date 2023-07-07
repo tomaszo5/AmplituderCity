@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmplituderCity", "AmplituderCity\AmplituderCity.csproj", "{1423E738-A90C-400D-89C3-DBD311C706AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmplituderCity", "AmplituderCity\AmplituderCity.csproj", "{1423E738-A90C-400D-89C3-DBD311C706AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplituderCityTests", "AplituderCityTests\AplituderCityTests.csproj", "{A874EF4C-DFDB-42C8-B88F-728D22B7316E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1423E738-A90C-400D-89C3-DBD311C706AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1423E738-A90C-400D-89C3-DBD311C706AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1423E738-A90C-400D-89C3-DBD311C706AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A874EF4C-DFDB-42C8-B88F-728D22B7316E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A874EF4C-DFDB-42C8-B88F-728D22B7316E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A874EF4C-DFDB-42C8-B88F-728D22B7316E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A874EF4C-DFDB-42C8-B88F-728D22B7316E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
