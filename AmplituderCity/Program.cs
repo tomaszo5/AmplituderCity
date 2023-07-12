@@ -1,20 +1,15 @@
 ﻿using AmplituderCity;
 Console.WriteLine("Witaj w programie do obliczania amplitudy temperatur dla kilku miast w Polsce");
 Console.WriteLine("Zaczynamy:");
-
-
 var checkerGdynia = new CheckerInFile("Polska", "Pomorskie","Gdynia");
 var checkerGdansk = new CheckerInFile("Polska", "Pomorskie", "Gdańsk");
 var checkerWarszawa = new CheckerInFile("Polska", "Mazowieckie", "Warszawa");
 var checkerKrakow = new CheckerInFile("Polska", "Małopolskie", "Kraków");
-
-
 void CheckerGradeAdded(object sender, EventArgs args)
 {
     var checker = (CheckerInFile)sender;
     Console.WriteLine($"Nowa wartość temperatury dla miasta {checker.City}:");
 }
-
 while (true)
 {
     Console.WriteLine("Podaj wysokość temperatury dla Gdyni (jeżeli chcesz przejść do następnego miasta wciśnij q):");
@@ -32,7 +27,6 @@ while (true)
         Console.WriteLine($"Exception catched: {e.Message}");
     }
 }
-
 while (true)
 {
     Console.WriteLine("Podaj wysokość temperatury dla Gdańska (jeżeli chcesz przejść do następnego miasta wciśnij q):");
@@ -50,7 +44,6 @@ while (true)
         Console.WriteLine($"Exception catched: {e.Message}");
     }
 }
-
 while (true)
 {
     Console.WriteLine("Podaj wysokość temperatury dla Warszawy (jeżeli chcesz przejść do następnego miasta wciśnij q):");
@@ -68,7 +61,6 @@ while (true)
         Console.WriteLine($"Exception catched: {e.Message}");
     }
 }
-
 while (true)
 {
     Console.WriteLine("Podaj wysokość temperatury dla Krakowa (jeżeli chcesz zakończyć wciśnij q):");
@@ -86,8 +78,6 @@ while (true)
         Console.WriteLine($"Exception catched: {e.Message}");
     }
 }
-
-
 var statistics = checkerGdynia.GetStatistics();
 Console.WriteLine("Statystyki dla Gdyni:");
 Console.WriteLine($"Średnia: {statistics.Average:N2}");

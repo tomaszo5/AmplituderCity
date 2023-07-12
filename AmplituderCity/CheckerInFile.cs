@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-
 namespace AmplituderCity;
-
     public class CheckerInFile : CheckerBase
     {
         private string fileName;
@@ -54,7 +52,6 @@ namespace AmplituderCity;
                 throw new Exception("Wrong Temperature");
             }
         }
-
         public override void AddGrade(byte grade)
         {
             using (var writer = File.AppendText(fileName))
@@ -62,7 +59,6 @@ namespace AmplituderCity;
                 writer.WriteLine((float)grade);
             }
         }
-
         public override void AddGrade(long grade)
         {
             using (var writer = File.AppendText(fileName))
@@ -70,7 +66,6 @@ namespace AmplituderCity;
                 writer.WriteLine((float)grade);
             }
         }
-
         public override void AddGrade(short grade)
         {
             float gradeAsFloat = (float)grade;
@@ -79,7 +74,6 @@ namespace AmplituderCity;
                 writer.WriteLine(gradeAsFloat);
             }
         }
-
         public override void AddGrade(double grade)
         {
             float gradeAsFloat = (float)grade;
@@ -88,7 +82,6 @@ namespace AmplituderCity;
                 writer.WriteLine(gradeAsFloat);
             }
         }
-
         public override void AddGrade(int grade)
         {
             float gradeAsFloat = (float)grade;
@@ -104,12 +97,18 @@ namespace AmplituderCity;
                 }
             }
         }
-
         public override void AddGrade(char grade)
         {
-            throw new Exception("Wrong Number");
+        float convertedGrade;
+        if (float.TryParse(grade.ToString(), out convertedGrade))
+        {
+            this.AddGrade(convertedGrade);
         }
-
+        else
+        {
+            throw new Exception("Invalid temperature value");
+        }
+    }
         public override Statistics GetStatistics()
         {
             var gradesFromFile = ReadGradesFromFile();
@@ -136,7 +135,6 @@ namespace AmplituderCity;
             }
             return grades;
         }
-
         private Statistics CountStatistics(List<float> grades)
         {
             var statistics = new Statistics();

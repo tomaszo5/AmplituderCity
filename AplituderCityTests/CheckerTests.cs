@@ -1,5 +1,4 @@
 using NUnit.Framework;
-
 namespace AmplituderCity.Tests
 {
     public class CheckerTests
@@ -14,7 +13,6 @@ namespace AmplituderCity.Tests
 
             Assert.AreEqual(52, statistics.Max);
         }
-
         [Test]
         public void WhenGetStatisticsCalled_ShouldReturnCorrectMin()
         {
@@ -25,7 +23,6 @@ namespace AmplituderCity.Tests
 
             Assert.AreEqual(14, statistics.Min);
         }
-
         [Test]
         public void WhenGetStatisticsCalled_ShouldReturnCorrectAverage()
         {
