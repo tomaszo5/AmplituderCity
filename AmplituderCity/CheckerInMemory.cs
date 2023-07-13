@@ -3,38 +3,10 @@ public class CheckerInMemory : CheckerBase
 {
     private readonly List<float> grades = new List<float>();
 
-    public override event GradeAddedDelegate GradeAdded;
     public CheckerInMemory(string country, string land, string city)
             : base(country, land, city)
     {
 
-    }
-    public override void AddGrade(float grade)
-    {
-        if (grade >= -100 && grade <= 100)
-        {
-            this.grades.Add(grade);
-
-            if (GradeAdded != null)
-            {
-                GradeAdded(this, new EventArgs());
-            }
-        }
-        else
-        {
-            throw new Exception("invalid temperature value");
-        }
-    }
-    public override void AddGrade(string grade)
-    {
-        if (float.TryParse(grade, out float result))
-        {
-            this.AddGrade(result);
-        }
-        else
-        {
-            throw new Exception("Wrong Number");
-        }
     }
     public override void AddGrade(byte grade)
     {
@@ -58,17 +30,7 @@ public class CheckerInMemory : CheckerBase
         float gradeAsFloat = grade;
         this.AddGrade(gradeAsFloat);
     }
-    public override void AddGrade(char grade)
-    {
-        if (float.TryParse(grade.ToString(), out float result) && result >= -100 && result <= 100)
-        {
-            this.AddGrade(result);
-        }
-        else
-        {
-            throw new Exception("Invalid temperature value");
-        }
-    }
+
     public override Statistics GetStatistics()
     {
         var statistics = new Statistics();
