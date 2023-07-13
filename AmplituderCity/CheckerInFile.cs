@@ -2,18 +2,26 @@
 public class CheckerInFile : CheckerBase
 {
     public CheckerInFile(string country, string land, string city)
-        : base(country, land, city) => fileName = $"{city}_temperatures.txt";
+        : base(country, land, city) => fileNames = $"{city}_temperatures.txt";
 
     public override void AddGrade(byte grade)
     {
-        using (var writer = File.AppendText(fileName))
+        float gradeAsFloat = grade;
+        using (var writer = File.AppendText(fileNames))
         {
-            writer.WriteLine((float)grade);
+            if (gradeAsFloat >= -100 && gradeAsFloat <= 100)
+            {
+                writer.WriteLine(gradeAsFloat);
+            }
+            else
+            {
+                throw new Exception("Value out of range");
+            }
         }
     }
     public override void AddGrade(long grade)
     {
-        using (var writer = File.AppendText(fileName))
+        using (var writer = File.AppendText(fileNames))
         {
             writer.WriteLine((float)grade);
         }
@@ -21,7 +29,7 @@ public class CheckerInFile : CheckerBase
     public override void AddGrade(short grade)
     {
         float gradeAsFloat = (float)grade;
-        using (var writer = File.AppendText(fileName))
+        using (var writer = File.AppendText(fileNames))
         {
             writer.WriteLine(gradeAsFloat);
         }
@@ -29,7 +37,7 @@ public class CheckerInFile : CheckerBase
     public override void AddGrade(double grade)
     {
         float gradeAsFloat = (float)grade;
-        using (var writer = File.AppendText(fileName))
+        using (var writer = File.AppendText(fileNames))
         {
             writer.WriteLine(gradeAsFloat);
         }
@@ -37,7 +45,7 @@ public class CheckerInFile : CheckerBase
     public override void AddGrade(int grade)
     {
         float gradeAsFloat = (float)grade;
-        using (var writer = File.AppendText(fileName))
+        using (var writer = File.AppendText(fileNames))
         {
             if (grade >= -100 && grade <= 100)
             {
@@ -59,9 +67,9 @@ public class CheckerInFile : CheckerBase
     private List<float> ReadGradesFromFile()
     {
         var grades = new List<float>();
-        if (File.Exists(fileName))
+        if (File.Exists(fileNames))
         {
-            using (var reader = new StreamReader(fileName))
+            using (var reader = new StreamReader(fileNames))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
@@ -85,5 +93,6 @@ public class CheckerInFile : CheckerBase
 
         return statistics;
     }
+
 }
 

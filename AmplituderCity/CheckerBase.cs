@@ -10,7 +10,7 @@ public abstract class CheckerBase : IChecker
         this.Land = land;
         this.City = city;
     }
-    public string fileName;
+    public string fileNames;
     public string Country { get; private set; }
     public string Land { get; private set; }
     public string City { get; private set; }
@@ -18,12 +18,12 @@ public abstract class CheckerBase : IChecker
     {
         if (grade >= -100 && grade <= 100)
         {
-            if (!File.Exists(fileName))
+            if (!File.Exists(fileNames))
             {
-                using (var writer = File.CreateText(fileName)) { }
+                using (var writer = File.CreateText(fileNames)) { }
             }
 
-            using (var writer = File.AppendText(fileName))
+            using (var writer = File.AppendText(fileNames))
             {
                 writer.WriteLine(grade);
             }
@@ -53,12 +53,12 @@ public abstract class CheckerBase : IChecker
     {
         if (float.TryParse(grade, out float result) && result >= -100 && result <= 100)
         {
-            if (!File.Exists(fileName))
+            if (!File.Exists(fileNames))
             {
-                using (var writer = File.CreateText(fileName)) { }
+                using (var writer = File.CreateText(fileNames)) { }
             }
 
-            using (var writer = File.AppendText(fileName))
+            using (var writer = File.AppendText(fileNames))
             {
                 writer.WriteLine(grade);
             }
